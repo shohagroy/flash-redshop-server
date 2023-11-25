@@ -1,4 +1,4 @@
-export type IUserFilters = {
-  search?: string;
-  role?: string;
+export type IProductFilters = {
+  searchTerm?: string;
+  categoryId?: string;
 };

@@ -1,3 +1,3 @@
-export const userFilterableFields: string[] = ["search", "role"];
+export const productFilterableFields: string[] = ["searchTerm", "categoryId"];
 
-export const userSearchableFields: string[] = ["name", "email", "contact"];
+export const productSearchableFields: string[] = ["name"];

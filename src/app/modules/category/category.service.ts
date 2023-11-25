@@ -2,7 +2,7 @@ import { Category } from "@prisma/client";
 import prisma from "../../../shared/prisma";
 import imagesUpload from "../../../helpers/imagesUpload";
 
-const insertUserToDB = async (tittle: string, imageBlob: string[]) => {
+const insertCategoryToDB = async (tittle: string, imageBlob: string[]) => {
   const result = await prisma.$transaction(async (prismaTransaction) => {
     const images = await imagesUpload(imageBlob);
 
@@ -33,13 +33,17 @@ const findByName = async (name: string): Promise<Category | null> => {
 };
 
 const findALl = async () => {
-  const result = await prisma.user.findMany();
+  const result = await prisma.category.findMany({
+    include: {
+      images: true,
+    },
+  });
 
   return result;
 };
 
 export const categoryService = {
-  insertUserToDB,
+  insertCategoryToDB,
   findByName,
   findALl,
 };

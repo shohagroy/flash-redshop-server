@@ -10,14 +10,18 @@ router.route("/create-user").post(
   userController.createNewUser
 );
 
-router.route("/login").post(
-  // auth(ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.SUPER_ADMIN),
-  userController.userLogin
-);
+router
+  .route("/login")
+  .post(
+    auth(ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.SUPER_ADMIN),
+    userController.userLogin
+  );
 
-router.route("/").get(
-  // auth(ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.SUPER_ADMIN),
-  userController.getAllUsers
-);
+router
+  .route("/")
+  .get(
+    auth(ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.SUPER_ADMIN),
+    userController.getAllUsers
+  );
 
 export const userRoutes = router;

@@ -15,7 +15,7 @@ const createNewCategory = catchAsync(async (req: Request, res: Response) => {
     throw new ApiError(httpStatus.CONFLICT, "Category Already Exits!");
   }
 
-  const result = await categoryService.insertUserToDB(tittle, icon);
+  const result = await categoryService.insertCategoryToDB(tittle, icon);
   sendResponse<Category>(res, {
     statusCode: httpStatus.OK,
     success: true,

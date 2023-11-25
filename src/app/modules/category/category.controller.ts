@@ -24,17 +24,18 @@ const createNewCategory = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-const getAllUsers = catchAsync(async (req: Request, res: Response) => {
-  // const result = await userService.findALl();
-  // sendResponse(res, {
-  //   statusCode: httpStatus.OK,
-  //   success: true,
-  //   message: "User Get Successfully!",
-  //   data: result,
-  // });
+const getAllCategories = catchAsync(async (req: Request, res: Response) => {
+  const result = await categoryService.findALl();
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "Categories Get Successfully!",
+    data: result,
+  });
 });
 
 export const categoryController = {
   createNewCategory,
-  getAllUsers,
+  getAllCategories,
 };

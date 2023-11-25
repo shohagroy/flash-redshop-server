@@ -12,4 +12,11 @@ router
     categoryController.createNewCategory
   );
 
+router
+  .route("/")
+  .post(
+    auth(ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.SUPER_ADMIN),
+    categoryController.getAllCategories
+  );
+
 export const categoryRoutes = router;

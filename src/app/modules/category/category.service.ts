@@ -33,16 +33,7 @@ const findByName = async (name: string): Promise<Category | null> => {
 };
 
 const findALl = async () => {
-  const result = await prisma.user.findMany({
-    select: {
-      id: true,
-      name: true,
-      email: true,
-      role: true,
-      createdAt: true,
-      updatedAt: true,
-    },
-  });
+  const result = await prisma.user.findMany();
 
   return result;
 };
@@ -50,4 +41,5 @@ const findALl = async () => {
 export const categoryService = {
   insertUserToDB,
   findByName,
+  findALl,
 };

@@ -12,7 +12,7 @@ const router = express_1.default.Router();
 router
     .route("/create-product")
     .post((0, auth_1.default)(user_constants_1.ENUM_USER_ROLE.ADMIN, user_constants_1.ENUM_USER_ROLE.SUPER_ADMIN), product_controller_1.productController.createNewProduct);
-router
-    .route("/")
-    .get((0, auth_1.default)(user_constants_1.ENUM_USER_ROLE.ADMIN, user_constants_1.ENUM_USER_ROLE.SUPER_ADMIN), product_controller_1.productController.getAllProducts);
+router.route("/").get(
+// auth(ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.SUPER_ADMIN),
+product_controller_1.productController.getAllProducts);
 exports.productsRoutes = router;

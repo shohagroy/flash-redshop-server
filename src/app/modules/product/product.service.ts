@@ -4,10 +4,7 @@ import { Prisma, Product } from "@prisma/client";
 import { IPaginationOptions } from "../../../interfaces/pagination";
 import { IProductFilters } from "./product.interface";
 import { paginationHelpers } from "../../../helpers/paginationHelper";
-import {
-  productFilterableFields,
-  productSearchableFields,
-} from "./product.constants";
+import { productSearchableFields } from "./product.constants";
 
 const insertProductToDB = async (data: Product, imageBlob: string[]) => {
   const result = await prisma.$transaction(async (prismaTransaction) => {

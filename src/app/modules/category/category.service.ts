@@ -36,6 +36,11 @@ const findALl = async () => {
   const result = await prisma.category.findMany({
     include: {
       images: true,
+      products: {
+        include: {
+          images: true,
+        },
+      },
     },
   });
 

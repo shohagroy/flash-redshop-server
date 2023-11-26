@@ -5,17 +5,14 @@ import { ENUM_USER_ROLE } from "./user.constants";
 
 const router = express.Router();
 
-router.route("/create-user").post(
-  // auth(ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.SUPER_ADMIN),
-  userController.createNewUser
-);
-
 router
-  .route("/login")
+  .route("/create-user")
   .post(
     auth(ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.SUPER_ADMIN),
-    userController.userLogin
+    userController.createNewUser
   );
+
+router.route("/login").post(userController.userLogin);
 
 router
   .route("/")

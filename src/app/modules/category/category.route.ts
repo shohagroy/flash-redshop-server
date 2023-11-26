@@ -12,11 +12,9 @@ router
     categoryController.createNewCategory
   );
 
-router
-  .route("/")
-  .get(
-    auth(ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.SUPER_ADMIN),
-    categoryController.getAllCategories
-  );
+router.route("/").get(
+  // auth(ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.SUPER_ADMIN),
+  categoryController.getAllCategories
+);
 
 export const categoryRoutes = router;

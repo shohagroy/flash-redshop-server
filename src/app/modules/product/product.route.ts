@@ -12,11 +12,9 @@ router
     productController.createNewProduct
   );
 
-router
-  .route("/")
-  .get(
-    auth(ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.SUPER_ADMIN),
-    productController.getAllProducts
-  );
+router.route("/").get(
+  // auth(ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.SUPER_ADMIN),
+  productController.getAllProducts
+);
 
 export const productsRoutes = router;
